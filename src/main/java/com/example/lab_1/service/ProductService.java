@@ -53,5 +53,9 @@ public class ProductService
         return productRepository.findByMinimumPrice(minPrice);
     }
 
+    public Product getById(Long id) {
+        return productRepository.findById(id).
+                orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
+    }
 
 }
