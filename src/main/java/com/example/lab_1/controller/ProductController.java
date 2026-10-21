@@ -5,6 +5,7 @@ import com.example.lab_1.model.Product;
 import com.example.lab_1.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -32,4 +33,9 @@ public class ProductController
         return productService.getById(id);
     }
 
+    @GetMapping("/min-price")
+    public List<Product>getByMinimumPrice(@RequestParam("price") BigDecimal price)
+    {
+        return productService.getByMinimumPrice(price);
+    }
 }
