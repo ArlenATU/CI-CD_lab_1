@@ -58,4 +58,9 @@ public class ProductService
                 orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
     }
 
+    public List<Product> getByCategoryName(String categoryName)
+    {
+        return productRepository.findByCategoryName(categoryName);
+    }
+
 }

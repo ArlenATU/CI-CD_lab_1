@@ -42,4 +42,11 @@ public class ProductController
     {
         return productService.getByMinimumPrice(price);
     }
+
+    @GetMapping("/by-category")
+    public List<Product> getByCategory(
+            @RequestParam("name") String categoryName) {
+        return productService.getByCategoryName(categoryName);
+    }
+
 }
